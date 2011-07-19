@@ -1,0 +1,202 @@
+- videos = []
+- videos << ['tram-01', 'About TRAM']
+- videos << ['tram-crane', 'Crane Application']
+- videos << ['tram-front', 'Front Application']
+- videos << ['tram-fuel', 'Fuel Application']
+- videos << ['tram-mine', 'Mining Application']
+- videos << ['tram-radius', 'Radius Application']
+- videos << ['tram-rotate', 'Rotate Radius']
+
+= render '/shared/subnav'
+
+.group
+  .content.no_padding
+    #main_image
+      #dot_belt.dot{ :style => "left: 315px; top: 150px;" }
+      #dot_tram.dot{ :style => "left: 815px; top: 90px;" }
+      #dot_rail.dot{ :style => "left: 700px; top: 262px;" }
+      = image_tag '/images/solutions/tram/main.png', :alt => 'TRAM system'
+      #hover_description{ :style => "left: -20px; top: 170px;" }
+        #belt_description.dot_decription
+          %span.bold Belt/Harness
+          %p
+            Designed to ensure the user is kept in position
+            on the walkway in the event of a slip, trip or incapacitation.
+            Double-action hooks are used to ensure they cannot be opened accidentally.
+            A full body harness is also available.
+        #tram_description.dot_description{ :style => 'display: none;' }
+          %span.bold TRAM
+          %p
+            Three position settings - vertical, horizontal and 45 degrees.
+            Clutch and brake levers ensure that the arm and base remain
+            where they are intended to be until the user wants to move them.
+            Anchor points comfortably spaced and looped around the handhold for additional strength.
+        #rail_description.dot_description{ :style => 'display: none;' }
+          %span.bold Rail
+          %p
+            Stainless or galvanized steel in 2" (50mm) squared tubing
+            with welded cleats attached to the vehicle or equipment
+            by purpose-designed welded or riveted mounting blocks.
+.clear
+
+.group
+  .content
+    .left.wide
+      %h2
+        TRAM - Travel Restraint Access Module
+      %p
+        The TRAM is a unique height safety system that is simple to use,
+        provides the operator with full mobility and yet completely prevents the user from falling to another level.
+      %p
+        While other height safety systems will arrest a free fall,
+        they can expose the user to suspension trauma or the risk of hitting obstacles while falling.
+        TRAM overcomes this safety issue while also reducing the likelihood and consequence of a fall on the same level.
+      %p
+        There have been no fatalities and no injuries reported by organizations using TRAM.
+        The system has prevented falls that would have otherwise resulted in serious injury or death.
+      %p
+        = link_to 'Certification and testing details »', '', :id => 'certification_link'
+      
+      %h3 TRAM protects during access and egress
+      %p
+        Statistics show that the transfer between the ladder and the platform or walkway (access and egress)
+        is particularly hazardous for those working at height.
+        As well as preventing falls on the platform or walkway,
+        TRAM provides protection for the user when making the transition between the ladder and the platform or walkway.
+        No other safety system in the world provides this level of protection.
+        When connected to a TRAM, you can not fall.
+
+      %h4 An ideal system of stability, mobility and restraint
+      %p
+        The TRAM arm raises and lowers with the assistance of a gas piston.
+        This aids the user in platform access and egress,
+        as well as when changing between standing and squatting positions while working.
+        The arm acts as a moving handhold, providing stability for the user on the platform.
+        While properly connected to the TRAM, the user can conduct their work efficiently,
+        safe in the knowledge that they can not fall.
+
+    .right.narrow
+      %p
+        = link_to '', :id => 'tram-videos_link' do
+          = image_tag '/images/solutions/tram/watch.jpg', :alt => 'Watch a preview', :class => 'shadowed'
+      %p
+        = link_to '', :id => 'slideshow_link' do
+          = image_tag '/images/pictures.png', :alt => 'slideshow link'
+      = render 'links'
+    .clear
+
+#trust.dark_gray.group
+  .content
+    %p
+      "The transfer between the ladder and the walkway, particularly in the descent,
+      is considered to be the most hazardous element of the whole access operation.
+      At present only one tank-based system (the TRAM) has been identified
+      which could effectively prevent or protect a worker from the consequences of a fall on the ladder
+      or from the top of the tank."
+    %h6 UK Health and Safety Laboratory Report HSL/04/2005
+
+.group
+  .content
+    %h5 Advantages of TRAM
+    %ul
+      %li Robust components that requires little maintenance
+      %li Designed by experts in the fields of ergonomics and engineering and is certified and tested to international standards
+      %li Cost effective
+
+  .content
+    %h5 TRAM v. Fall Arrest Systems
+    %ul
+      %li All fall arrest systems allow workers to drop while the fall is arrested. There is a very high risk of trauma through impact with hazards below.
+      %li Fall arrest systems are subjected to much greater loads as vertical fall is arrested. The total load on the static line system is much greater than the loads on a travel restraint system.
+      %li Fall arrest systems include the use of energy absorbers and full body harnesses to attenuate the fall forces transmitted on to the worker. However, victims fall greater distances as the energy absorber is deployed.
+      %li When a worker falls on a static line system the cable trolley will slip along the cable to the midpoint of the cable span. This effect increases the risk of impact as the person falling may be traveling horizontally, as well as dropping vertically, during the fall.
+      %li After a fall, all static line systems must be taken out of service until they are inspected and re-certified. Costly repairs are not covered by manufacturer's warranty.
+      %li Pop-up guard-rails are typically 35.4" (900mm) and lower than the centre of gravity of most workers. They are therefore unlikely to prevent a worker falling over them if they lose their balance or are struck by a foreign object.
+      %li Guardrails do not prevent a fall on the same level.
+      %li Floor/deck-mounted horizontal lifeline systems (HLL) can snag and accelerate a fall on the same level.
+      %li Overhead HLL systems can snag and suffer from trolley hang-ups.
+      %li Falls with HLL can cause suspension trauma.
+    
+.clear
+
+- content_for :colorbox do
+  #tram-videos
+    - videos.each_with_index do |video, i| 
+      .viewer{ :id => "#{video[0]}-container", :class => "#{'hidden' if i != 0}" }
+        %div{ :id => "#{video[0]}" }
+          .flash_warning
+            Currently loading movie. Please make sure you have
+            = link_to 'flash', 'http://get.adobe.com/flashplayer/'
+            installed.
+    .colorbox-links.for-video
+      - videos.each_with_index do |video, i| 
+        = link_to_function "#{video[1]}", '', :id => "link-#{video[0]}-container", :class => "#{'active' if i == 0}"
+
+  #slideshow
+    - 91.times do |i| 
+      .viewer.standard{ :id => "image-container-#{i}", :class => "#{'hidden' if i != 0}" }
+        = image_tag "/images/slideshows/tram/i-#{"%03d" % (i+1)}.png", :alt => "slideshow image #{i}"
+    .colorbox-links.for-pics
+      = link_to_function 'Next', '', :id => 'next-slideshow', :class => 'viewer-next'
+      = link_to_function 'Previous', '', :id => 'previous-slideshow', :class => 'viewer-previous'
+
+  #certification.small
+    %h6 Certification and Testing
+    %p 
+      The TRAM unit and rail have been tested by accredited laboratories to the specifications of, and are compliant with:
+      %br
+      EN 795:1997 as a Class D anchor device employing a horizontal rigid anchor rail
+      %br
+      SABS EN 795:1996 Protection against falls from a height
+      %br
+      AS/NZS 1891.4:2000 Industrial fall arrest systems and devices Selection use and maintenance
+      %br
+      The TRAM belt has been tested by accredited laboratories to the specifications of, and is compliant with:
+  
+    %p
+      EN 358:2000 as a Waist belt intended for restraint
+      %br
+      SABS EN 795:1996 Protection against falls from a height
+      %br
+      AS/NZS 1891.1:1995 Safety belts and harnesses
+      %br
+      TRAM is under continual improvement. Recent tests proved that TRAM will withstand forces of in excess 23 kN.
+    
+    %p
+      The TRAM is highly engineered and is certified to AS/NZS 1891.4:2000.
+      %br
+      The TRAM is also highly cost effective.
+      %br
+      All fall arrest systems allow workers to drop whilst fall is arrested. There is a very high risk of trauma through impact with hazards below.
+      %br
+      Fall arrest systems are subjected to much greater loads as vertical fall is arrested. The total load on the static line system is much greater than the loads on a travel restraint system.
+      %br
+      Fall arrest systems include the use of energy absorbers and full body harnesses to attenuate the fall forces transmitted on to the worker. However, victims fall greater distances as the energy absorber is deployed.
+      %br
+      When a worker falls on a static line system the cable trolley will slip along the cable to the midpoint of the cable span. This effect increase the risk of impact as the victim may be traveling horizontally, as well as dropping vertically, during the fall.
+      %br
+      After a fall, all static line systems must be taken out of service until they are inspected and recertified. Costly repairs are not covered by manufacturer's warranty.
+  
+- content_for :scripts do
+  :javascript
+    colorbox_display('tram-videos');
+    colorbox_display('slideshow');
+    colorbox_init('certification');
+    setUpTheatre();
+    setUpSlideshow();
+
+    $('.dot').hover(function(){
+      $('#hover_description').hide();
+      left_px = parseInt($(this).css('left')) - 335;
+      top_px = parseInt($(this).css('top')) + 20;
+      $('#hover_description').css({ 'top' : top_px, 'left' : left_px });
+      $('#hover_description div').hide();
+      $('#hover_description div').eq($(this).index()).show();
+      $('#hover_description').show();
+    })
+
+    var params = { bgcolor: "#000000", allowscriptaccess: "always", allowfullscreen: "true" };
+    var attributes = {};
+  - videos.each do |video| 
+    :javascript
+      swfobject.embedSWF('/standfast.swf', "#{video[0]}", "400", "300", "9.0.0", '/expressInstall.swf', { file: "#{s3_url('videos/'+ video[0] + '.flv')}" }, params, attributes);

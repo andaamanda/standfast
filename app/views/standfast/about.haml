@@ -1,0 +1,142 @@
+.group
+  .content
+    #people
+      .clear
+      #dowd.person.shadowed
+        .person-title.fake-link Phillip Dowd, Chairman
+      #baker.person.shadowed
+        .person-title.fake-link Cameron Baker, President/CEO
+      #davis.person.shadowed
+        .person-title.fake-link Brian Davis, Director
+      #tracy.person.shadowed
+        .person-title.fake-link Grant Tracy, Director of Safety
+      #gastevich.person.shadowed
+        .person-title.fake-link Eric Gastevich, Director
+      #zackrison.person.shadowed
+        .person-title.fake-link Kurt Zackrison, National Sales
+      #bolton.person.shadowed
+        .person-title.fake-link Michael Bolton, VP Finance/CFO
+      #bliese.person.shadowed
+        .person-title.fake-link Jon Bliese, Chief Engineer
+      #more_information
+      .clear
+      #bio_information.padding{ :style => 'display: none;' }
+        .person_spacer
+        .dowd.information
+          %h6 Phillip Dowd, Chairman
+          %p
+            Philip enjoyed a thirty three year career in the software industry. After holding several senior
+            positions at different software companies, Philip joined Sunguard Data Systems. After building Sunguard from $30mm
+            in revenues to over $1.5bn, Philip retired as Division CEO when the business was acquired by a consortium of private
+            equity firms for approximately $11bn. Philip holds an engineering degree Carnegie Mellon, where he currently sits as a
+            trustee, and an MBA from the University of Chicago. Philip currently resides in Chicago
+        .baker.information
+          %h6 Cameron Baker, President/CEO
+          %p
+            Graduate of Royal Military College of Australia - former Australian Army officer.
+            Cameron started work with Standfast in 1999. He has raised the capital required for commercialization and launched
+            TRAM in Australia in 2004, U.S. 2005, Europe 2006 Asia in 2007. Cameron relocated to Chicago with his family in 2007 to
+            drive Standfast's growth in the US and other world markets. As CEO of the business he has gained and immense
+            knowledge base of the manufacturing processes involved in commercialising industrial safety products and a
+            understanding on implementing channel to market
+            strategies for different markets and parts of the world.
+        .davis.information
+          %h6 Brian Davis, Director
+          %p
+            Brian has held a number of positions with Australian and multi-national firms during his thirty
+            year career in finance, accounting, taxation and business consulting , including periods in both corporate and public
+            practice. Brian holds a Bachelor s of Business degree and is a CPA. Brian currently resides in Brisbane.
+        .tracy.information
+          %h6 Grant Tracy, Director of Safety
+          %p
+            Grant joined Standfast in 2005 and has more than eighteen years of professional
+            experience, including research and published papers, in the fields of occupational health and safety. Grant holds a Master
+            of Science and Technology in Occupational Health and Safety from the University of New South Wales (University Prize in
+            Ergonomics) and qualifications in work physiology, biomechanics and occupational rehabilitation from bachelor degrees at
+            the University of Queensland. Grant currently resides in Brisbane.
+        .gastevich.information
+          %h6 Eric Gastevich, Director
+          %p
+            Founder and Principal of the ATG Companies. ATG is a real estate development and
+            investment company. ATG has developed residential subdivisions, office parks, medical facilities, apartment
+            communities and hotel and restaurant facilities including over 3,000 residential units and over 250,000 square feet of
+            commercial space. Eric sits on several corporate boards and manages a portfolio of public and private equity
+            investments. Eric holds a B.S. in Building, Construction and Contracting from Purdue University and an M.B.A. in
+            Finance and Real Estate from DePaul University. Eric currently resides in Indiana.
+        .zackrison.information
+          %h6 Kurt Zackrison, National Sales Director
+          %p
+            Kurt has held various positions in the sales and marketing industry for over 20
+            years. Prior to joining Standfast in 2009, Kurt spent 13 years working in several sales and management roles with Pfizer
+            and Agouron Pharmaceuticals. Kurt graduated with a B.S. in Marketing from the University of Notre Dame.
+        .bolton.information
+          %h6 Michael Bolton, VP Finance/CFO
+          %p
+            Michael joined Standfast in 2008 after working with several large global
+            manufacturing companies, most recently Terex Corporation, a diversified global manufacturer, where he w as the Vice
+            President of Finance of a $300 million division that designed, manufactured, and marketed utility equipment. A Chartered
+            Accountant (CPA equivalent) , Michael holds a B.Comm. from the University of Birmingham, England.
+        .bliese.information
+          %h6 Jon Bliese, Chief Engineer
+          %p
+            Prior to joining Standfast in 2008 Jon worked as a consultant structural engineer in the fall
+            protection and construction industries where he was in charge of the structural inspection projects and also oversaw a
+            team that designed, installed, and tested fall protection systems. Jon holds a degree in structural engineering from the
+            Milwaukee School of Engineering where he was also a student technician at the schools material testing facility.
+    .clear
+    
+.group
+  .content
+    .left.wide
+      %h2 History
+      %p Standfast was formed in February 1999 with the mission to develop the best height safety products on the world market. The company's formative years were spent in research and development in conjunction with respected industry partners. The first commercial product was sold in January 2004. Since then, Standfast has proved itself as a company with the capacity and ingenuity to take on the safety challenges faced by the world's largest organizations.
+      %p Our client base speaks for itself. Organizations such as BP, Shell, Exxon Mobil, Chevron Texaco, Caltex, Boral and Orica choose our products to protect their employees working at heights. The Standfast Group have expanded globally, setting up offices in the USA, Australia, Europe, UK and Asia. With continued growth and exciting new product development opportunities ahead, we look forward to helping more and more people around the world to get home safely.
+
+      %h3 Vision
+      %p To be the world wide leaders in the safety revolution.
+      
+      %h4 Mission
+      %p To save lives in the work place by protecting employees working at heights or working in dangerous conditions from the consequences of a fall.
+      
+      %h5 Values
+      In all our relationships we will demonstrate our commitment to:
+      %ul
+        %li Safety First
+        %li Customer-Driven Innovation With Quality
+        %li Respect
+        %li Integrity
+        %li Team Work
+      
+    .right.narrow
+      = link_to 'Contact Us', contact_path, :class => 'button blue'
+      = link_to 'Support', support_path, :class => 'button orange'
+      
+    .clear
+
+- content_for :scripts do
+  :javascript
+    $('#people').hover(function(){
+      //
+    }, function(){
+      $('.person').show();
+      $('.person').removeClass('hover');
+      $('#bio_information').hide();
+      $('#more_information').show();
+    })
+  
+    $('.person').click(function(){
+      if ($(this).hasClass('hover')){
+        $('.person').show();
+        $('.person').removeClass('hover');
+        $('#bio_information').hide();
+        $('#more_information').show();
+      } else{
+        $('.person').hide();
+        $(this).show();
+        $(this).addClass('hover');
+        $('#bio_information').show();
+        $('#bio_information .information').hide();
+        $('#bio_information .information').eq($(this).index()-1).show();
+        $('#more_information').hide();
+      }
+    })  

@@ -1,0 +1,124 @@
+.content
+  .left.wide
+    #contact_us.group
+      %h2 Contact Us
+      %p
+        Please use this form for questions and comments for Standfast USA in the Americas.
+        If you would like to contact a different region,
+        = link_to_function "please select it here.", "$('#change_location_link').click();"
+    .group
+      = form_tag '/email', :id => "contact-form" do
+        .form_line
+          = label_tag 'contact-name', 'Name'
+          = text_field_tag 'contact-name', @name
+          .error{ :style => "#{'display: none;' if @errors[:name].blank? }" } Can't be blank
+          .clear
+        .form_line
+          = label_tag 'contact-company', 'Company'
+          = text_field_tag 'contact-company', @company
+          .error{ :style => "#{'display: none;' if @errors[:company].blank? }" } Can't be blank
+          .clear
+        .form_line
+          = label_tag 'contact-address', 'Address'
+          = text_field_tag 'contact-address', @address
+          .error{ :style => "#{'display: none;' if @errors[:address].blank? }" } Can't be blank
+          .clear
+        .form_line
+          = label_tag 'contact-city', 'City'
+          = text_field_tag 'contact-city', @city
+          .error{ :style => "#{'display: none;' if @errors[:city].blank? }" } Can't be blank
+          .clear
+        .form_line
+          = label_tag 'contact-state', 'State'
+          = text_field_tag 'contact-state', @state
+          .error{ :style => "#{'display: none;' if @errors[:state].blank? }" } Can't be blank
+          .clear
+        .form_line
+          = label_tag 'contact-zip', 'Zip'
+          = text_field_tag 'contact-zip', @zip
+          .error{ :style => "#{'display: none;' if @errors[:zip].blank? }" } Can't be blank
+          .clear
+        .form_line
+          = label_tag 'contact-phone', 'Phone'
+          = text_field_tag 'contact-phone', @phone
+          .error{ :style => "#{'display: none;' if @errors[:phone].blank? }" } Can't be blank
+          .clear
+        .form_line
+          = label_tag 'contact-email', 'Email'
+          = text_field_tag 'contact-email', @email
+          .error{ :style => "#{'display: none;' if @errors[:email].blank? }" } Is invalid
+          .clear
+        .form_line
+          = label_tag 'contact-enquiry', 'Enquiry'
+          = text_area_tag 'contact-enquiry', @enquiry
+          .error{ :style => "#{'display: none;' if @errors[:enquiry].blank? }" } Can't be blank
+          .clear
+        = submit_tag "Send Email"
+
+  .right.narrow
+    %p
+      2502 North Clark St, Suite 207
+      %br
+      Chicago Illinois 60614
+      %br
+      USA
+      %br
+      = link_to "Directions", "http://goo.gl/maps/tkJg"
+    %p
+      +877 850 TRAM (8726)
+    
+    = link_to 'Support', support_path, :class => 'button orange'
+  .clear
+.clear
+
+.group
+  .content
+    #map
+
+- content_for :scripts do
+  %script{ :src => "http://maps.google.com/maps/api/js?sensor=false", :type => 'text/javascript'}
+  
+  :javascript
+    function initialize() {
+      var latlng = new google.maps.LatLng(41.92776,-87.64169);
+      var myOptions = {
+        zoom: 18,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        scrollwheel: false
+      };
+
+      var map = new google.maps.Map(document.getElementById("map"),myOptions);
+      setMarkers(map);
+
+      function setMarkers(map) {
+        var myLatLng = new google.maps.LatLng(41.92776,-87.64169);
+        var image = new google.maps.MarkerImage(
+          '/images/standfast/contact/icon_map.png',
+          new google.maps.Size(83, 83),
+          new google.maps.Point(0,0),
+          new google.maps.Point(0,83)
+        );
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          icon: image
+        });
+      }
+    }
+
+    initialize();
+    
+    $(document).ready(function(){
+      $('#contact-form input, #contact-form textarea').blur(function(){
+        if ($(this).val() != ''){
+          $(this).parent().children('.error').hide();
+        } else {
+          $(this).parent().children('.error').show();
+        }
+      })
+      
+      if (location.pathname == "/email"){
+        scrollToId('contact_us');
+      }
+    })

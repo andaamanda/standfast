@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+%html{ :lang => 'en' }
+  %head
+    %title
+      Standfast &curren; 
+      = @title
+    %meta{ :charset => "utf-8" }
+    %meta{ :name => 'description', :content => @description }
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag :all
+    = csrf_meta_tag
+    = yield :head
+
+  - controller_name = controller.controller_name.downcase.gsub('application','')
+  - action_name = controller.action_name.downcase.gsub('create', 'new')
+  %body{ :class => "#{controller_name} #{action_name}" }
+    - if @current_person
+      = link_to "Logout", logout_path, :id => "logout"
+      
+    #nav.group
+      .content
+        %h1= link_to '', root_path, :id => 'standfast'
+        .nav_line= image_tag "/images/nav/line.png", :alt => 'Separator'
+        = link_to '', tram_path, :id => 'tram_nav'
+        = link_to '', tline_path, :id => 'tline_nav'
+        = link_to 'About', about_path, :id => 'about_nav',  :class => 'nav'
+        = link_to 'Solutions', solutions_path, :id => 'solutions_nav', :class => 'nav'
+        = link_to 'Support', support_path, :id => 'support_nav',  :class => 'nav'
+        = link_to 'Installers/Distributors', installation_path, :id => 'installation_nav',  :class => 'nav'
+        = link_to 'Contact', contact_path, :id => 'contact_nav',  :class => 'nav'
+        / = link_to 'Blog', '#', :id => 'blog_nav',  :class => 'nav'
+        = link_to 'Change', "#", :id => 'change_location_link'
+        .clear
+    
+    .page
+      = yield
+
+    %br
+    
+    = render '/shared/footer'
+    &nbsp;
+    
+    %div{ :style => 'display: none;' }
+      #change_location
+        .left= image_tag '/images/globe.png', :alt => 'Globe', :height => 199, :width => 186
+        #locations
+          %h6 Change Your Standfast Location
+          %p
+            = link_to 'Australia', 'http://tramaustralia.com.au/'
+            %br
+            = link_to 'Europe', 'http://www.standfastcorp.eu/'
+            
+        .clear
+      = yield :colorbox
+
+    = yield :scripts
+    :javascript
+      colorbox_init('change_location');
+
+    - if Rails.env == 'production'
+      :javascript
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-21993278-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    -#
+      $(document).ready(function() {
+        if (window.location.hash != '' && window.location.hash != '#') {
+          id = window.location.hash;
+          $(id + '_link').click();
+        }
+      })

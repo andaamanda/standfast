@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @installer.name %>
+</p>
+
+<p>
+  <b>Contact:</b>
+  <%= @installer.contact %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @installer.phone %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @installer.address %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @installer.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_installer_path(@installer) %> |
+<%= link_to 'Back', installers_path %>

@@ -1,0 +1,22 @@
+#footer
+  - unless @quote.blank?
+    #quote.dark_gray
+      .content
+        #the_quote
+          == "#{@quote}" #{link_to 'Read More', "#{testimonials_path}##{@testimonial_id}"}
+        .clear
+        #author
+          = @author
+
+  #legal.content
+    .left
+      .left== &copy; #{Time.now.year} Standfast Corp.
+      = link_to raw('Disclaimer &amp; Privacy Statement'), legal_path
+      = link_to 'Product Catalogue', s3_url('documents/catalogue.pdf')
+    
+    .right
+      .left USA
+      = link_to 'Australia', 'http://tramaustralia.com.au/'
+      = link_to 'Europe', 'http://www.standfastcorp.eu/en/news'
+  
+  

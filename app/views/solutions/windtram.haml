@@ -1,0 +1,63 @@
+- videos = []
+- videos << ['wind-tram', 'About Wind TRAM']
+
+= render '/shared/subnav'
+
+.group
+  .content.no_padding
+    #main_image
+      = image_tag '/images/solutions/windtram/main-windtram.png', :alt => 'Wind TRAM system'
+
+.group
+  .content
+    .left.wide
+      %h2
+        Wind TRAM
+      %p
+        The TRAM Fall Protection System is now available for OEMs. Solutions for retro fitting existing wind turbines will be available in early April.
+      %p
+        = link_to '', :id => 'slideshow_link' do
+          = image_tag '/images/pictures.png', :alt => 'slideshow link'
+
+    .right.narrow
+      %p
+        = link_to '', :id => 'windtram-videos_link' do
+          = image_tag '/images/solutions/windtram/watch-wind.jpg', :alt => 'Watch a preview', :class => 'shadowed'
+      = render 'links'
+      
+    .clear
+
+- content_for :colorbox do
+  #windtram-videos
+    - videos.each_with_index do |video, i| 
+      .viewer{ :id => "#{video[0]}-container", :class => "#{'hidden' if i != 0}" }
+        %div{ :id => "#{video[0]}" }
+          .flash_warning
+            Currently loading movie. Please make sure you have
+            = link_to 'flash', 'http://get.adobe.com/flashplayer/'
+            installed.
+    .colorbox-links.for-video
+      - videos.each_with_index do |video, i| 
+        = link_to_function "#{video[1]}", '', :id => "link-#{video[0]}-container", :class => "#{'active' if i == 0}"
+
+  #slideshow
+    - 2.times do |i| 
+      .viewer.standard{ :id => "image-container-#{i}", :class => "#{'hidden' if i != 0}" }
+        = image_tag "/images/slideshows/wind/i-#{"%03d" % (i+1)}.png", :alt => "slideshow image #{i}"
+    .colorbox-links.for-pics
+      = link_to_function 'Next', '', :id => 'next-slideshow', :class => 'viewer-next'
+      = link_to_function 'Previous', '', :id => 'previous-slideshow', :class => 'viewer-previous'
+
+- content_for :scripts do
+  :javascript
+    colorbox_display('windtram-videos');
+    colorbox_display('slideshow');
+    setUpTheatre();
+    setUpSlideshow();
+
+    var params = { bgcolor: "#000000", allowscriptaccess: "always", allowfullscreen: "true" };
+    var attributes = {};
+  - videos.each do |video| 
+    :javascript
+      swfobject.embedSWF('/standfast.swf', "#{video[0]}", "400", "300", "9.0.0", '/expressInstall.swf', { file: "#{s3_url('videos/'+ video[0] + '.flv')}" }, params, attributes);
+  

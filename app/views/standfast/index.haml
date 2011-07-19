@@ -1,0 +1,35 @@
+.group
+  .content
+    #main_display
+      .main_image= image_tag '/images/standfast/worksite.png', :height => '310', :width => '320', :alt => 'Worksite'
+      .main_image= image_tag '/images/standfast/worker.png', :height => '310', :width => '320', :alt => 'Worker using TRAM'
+      .main_image= image_tag '/images/standfast/tram_system.png', :height => '310', :width => '320', :alt => 'TRAM system'
+      .clear
+      #main_description
+        %p
+          Around the world major organizations rely on our products to protect employees working in dangerous conditions from the consequences of a fall.
+          %br
+        = link_to "Learn Why", tram_path, :class => 'button orange'
+    .clear
+
+#trust.dark_gray.group
+  .content
+    #trust_image.wide
+      = image_tag '/images/standfast/trust.png', :width => '519', :height => '303', :alt => 'Safety you can trust'
+    .clear
+    #trust_description.right
+      %h3 Safety You Can Trust
+      %p
+        Standfast has proved itself as a company with the capacity and ingenuity to take on the safety challenges faced by the world's largest organizations. Companies such as Shell, Chevron, Texaco, Boral, Orica, Ryder, Heil, Holcim, Italcementi and BP choose our solutions to protect their employees working at heights.
+      = link_to "Our Dedication to Height Safety", about_path, :class => 'button blue'
+    .clear
+%br
+.group
+  #tram_exploded.content
+    .left.narrow
+      %h5 TRAM
+      %p
+        TRAM can be implemented anywhere and customized to your exact needs.
+        The typical construction contains the TRAM, rail, end stops and mount blocks.
+        %br
+      = link_to 'See More', custom_path, :class => 'button orange'

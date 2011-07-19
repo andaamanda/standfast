@@ -1,0 +1,8 @@
+.group
+  .content
+    %h2 Standfast Login
+    %br
+    = form_for 'session', :url => sessions_url, :html => { :id => 'login-form' } do
+      = render "/person_sessions/form"
+      = submit_tag "Login"
+  .clear

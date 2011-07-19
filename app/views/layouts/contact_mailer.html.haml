@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+%html{ :lang => 'en' }
+  %head
+    %title
+      = @subject
+    %meta{ :charset => "utf-8" }
+  
+  %body{ :style => "background-color: #808080;" }
+    %div{ :style => "padding: 20px; text-align: center;" }
+      %div{ :style => "padding: 20px; background-color: #fff; width: 500px; margin: 0px auto;" }
+        %h1= image_tag "http://#{url_options[:host]}/images/nav/standfast.png", :alt => 'Standfast USA'
+        %br
+        = yield

@@ -1,0 +1,72 @@
+- videos = []
+- videos << ['railtram-01', 'About Rail TRAM']
+
+= render '/shared/subnav'
+
+.group
+  .content.no_padding
+    #main_image
+      = image_tag '/images/solutions/railtram/railtram-main.png', :alt => 'Rail TRAM system'
+
+.group
+  .content
+    .left.wide
+      %h2
+        Rail TRAM
+      %p The Rail TRAM system consists of a rail, a slider unit and a restraint belt. It is designed specifically for insulated road tankers and permits its operators to safely access and work on the top of the tank. Rail TRAM provides the user with an ideal system of mobility , stability and restraint that is simple and quick to install.
+      %p As well as preventing falls on the platform, Rail TRAM provides protection and assistance in making the transition between the ladder and the platform.
+      %p Rail TRAM is the only system in the world that protects the user while transferring from the ladder to the top of the tank. When connected to Rail TRAM, you can not fall.
+
+      %h3 What is Rail TRAM?
+      %p Rail TRAM is a height safety system designed specifically for use on insulated road tankers. The system permits its operators to safely access and work on the top of the tank. As well as preventing falls on the platform, Rail TRAM provides protection and assistance in making the transition between the ladder and the platform. No other safety system in the world provides this level of protection. Once connected to Rail TRAM, you can not fall.
+      
+      %h4 How is Rail TRAM used?
+      %p The worker puts on a lightweight restraint belt and ascends the ladder to a position where they can attach to the anchor point on the Rail TRAM slider unit. Then, in a single, easy operation, the rail is gripped, the levers activated and the rail lifted into the upright position. The spring-assisted rail aids the operator throughout this process and the anchored belt prevents them from falling. When the Rail TRAM unit is raised it locks into position and the slider unit allows uninhibited access along the platform, without the entanglement risk associated with typical lifeline systems.
+
+      %h5 Length &amp; Weight
+      %p Rail TRAM is suitable for spanning platforms of up to 9m (30') The system has an approximate weight of 220lb (99kg).
+      
+    .right.narrow
+      %p
+        = link_to '', :id => 'railtram-videos_link' do
+          = image_tag '/images/solutions/railtram/watch-railtram.jpg', :alt => 'Watch a preview', :class => 'shadowed'
+      %p
+        = link_to '', :id => 'slideshow_link' do
+          = image_tag '/images/pictures.png', :alt => 'slideshow link'
+      = render 'links'
+      
+    .clear
+
+- content_for :colorbox do
+  #railtram-videos
+    - videos.each_with_index do |video, i| 
+      .viewer{ :id => "#{video[0]}-container", :class => "#{'hidden' if i != 0}" }
+        %div{ :id => "#{video[0]}" }
+          .flash_warning
+            Currently loading movie. Please make sure you have
+            = link_to 'flash', 'http://get.adobe.com/flashplayer/'
+            installed.
+    .colorbox-links.for-video
+      - videos.each_with_index do |video, i| 
+        = link_to_function "#{video[1]}", '', :id => "link-#{video[0]}-container", :class => "#{'active' if i == 0}"
+
+  #slideshow
+    - 7.times do |i| 
+      .viewer.standard{ :id => "image-container-#{i}", :class => "#{'hidden' if i != 0}" }
+        = image_tag "/images/slideshows/railtram/i-#{"%03d" % (i+1)}.png", :alt => "slideshow image #{i}"
+    .colorbox-links.for-pics
+      = link_to_function 'Next', '', :id => 'next-slideshow', :class => 'viewer-next'
+      = link_to_function 'Previous', '', :id => 'previous-slideshow', :class => 'viewer-previous'
+
+- content_for :scripts do
+  :javascript
+    colorbox_display('railtram-videos');
+    colorbox_display('slideshow');
+    setUpTheatre();
+    setUpSlideshow();
+
+    var params = { bgcolor: "#000000", allowscriptaccess: "always", allowfullscreen: "true" };
+    var attributes = {};
+  - videos.each do |video| 
+    :javascript
+      swfobject.embedSWF('/standfast.swf', "#{video[0]}", "400", "300", "9.0.0", '/expressInstall.swf', { file: "#{s3_url('videos/'+ video[0] + '.flv')}" }, params, attributes);

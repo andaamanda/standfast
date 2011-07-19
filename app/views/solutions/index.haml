@@ -1,0 +1,212 @@
+- groups = []
+- groups << ['agriculture', 24]
+- groups << ['transport', 120]
+- groups << ['construction', 36]
+- groups << ['cranes', 64]
+- groups << ['custom', 46]
+- groups << ['fire', 41]
+- groups << ['mining', 32]
+- groups << ['wind', 2]
+
+#slider.group.shadow
+  = render '/shared/subnav'
+  
+  .content
+    #images
+      = link_to tram_path, :id => 'tram' do
+        = image_tag '/images/solutions/tram.jpg', :alt => 'tram'
+      = link_to isotram_path, :id => 'isotram' do
+        = image_tag '/images/solutions/isotram.jpg', :alt => 'isotram'
+      = link_to windtram_path, :id => 'windtram' do
+        = image_tag '/images/solutions/windtram.jpg', :alt => 'windtram'
+      = link_to firetram_path, :id => 'firetram' do
+        = image_tag '/images/solutions/firetram.jpg', :alt => 'firetram'
+      = link_to railtram_path, :id => 'railtram' do
+        = image_tag '/images/solutions/railtram.jpg', :alt => 'railtram'
+      = link_to custom_path, :id => 'custom' do
+        = image_tag '/images/solutions/tailored.jpg', :alt => 'custom'
+      = link_to tline_path, :id => 'tline' do
+        = image_tag '/images/solutions/tline.jpg', :alt => 'tline'
+      
+      .clear
+
+.group
+  .content
+    .application.transportation
+    %h4 Transport, Road & Rail
+    %p
+      Solutions: 
+      = link_to 'TRAM,', tram_path
+      = link_to 'Rail TRAM', railtram_path
+    %p
+      Falls from height represent a major health and safety concern for the world-wide transport industry. Australian statistics show that transport workers have an injury rate four times the average of all workers and the severity of their injuries is double that of all other injury claims¹. In addressing this risk, Standfast has worked extensively with the transport industry to adapt the TRAM safety system for use in a variety of transport applications.
+    %h6 Liquid and dry-powder tankers
+    %p
+      Standfast developed its first TRAM safety system to protect road tanker drivers carrying bulk fuel, oil and dry powder. It was clear that workers in this industry were particularly at risk of falls from height and that the safety facilities typically provided on the tanker top did not prevent such falls. A number of serious injuries and deaths had occurred that could have been avoided if the right safety system was available.
+    %p
+      The invention of the TRAM safety system has had a significant impact on height safety in the petrochemical industry and it is in this industry that the majority of TRAM systems continue to be sold and fitted.
+    %p
+      Conventional lifeline systems may snag on fittings on the top of the tanker, pulling the user off-balance and potentially accelerating their fall on to the tanker top. In contrast, should a worker connected to a TRAM lose their footing while on the tanker top, they will quickly be brought back to a position of safety with the lowest possible risk of injury and no risk of a fall over the side. No other safety system in the world offers the same level of protection. When connected to a TRAM you can not fall. For orders or enquiries, contact us.
+    %h6 Chemical and insulated tankers
+    %p
+      Accessing and working on top of road tankers presents a major health and safety risk to employees. Rail TRAM is a height safety system designed specifically for use on insulated road tankers. The system permits its operators to safely access and work on the top of the tank. As well as preventing falls on the platform, Rail TRAM provides protection and assistance in making the transition between the ladder and the platform. Rail TRAM allows you and your employees to get home safely. For orders or enquiries, contact us.
+    %h6 Waste management
+    %p
+      TRAM is currently being used in the waste management industry to prevent the risk of a fall when working on rubbish trucks or industrial waste bins. TRAM allows the worker to securely access the entire upper portion of the waste transport unit and perform clearance inspections and maintenance without any risk of a fall – either over the side of the truck or into the waste receptacle.
+    %p
+      No other safety system in the world offers the same level of protection. When connected to a TRAM, you can not fall. For orders or enquiries, contact us.
+    %h6 ISO containers
+    %p
+      Workers on top of ISO containers are subject to similar fall hazards as those working on road tankers; both containers are similar in design and workers must perform a similar range of movement while working on them. To address this well-documented safety hazard, Standfast adapted its award-winning TRAM safety system for use on ISO containers. ISO TRAM negates the high risk of a fall from the top of an ISO container, allowing you and your employees to get home safely. For orders or enquiries, contact us.
+    %p
+      = link_to '', :id => 'slideshow-transport_link' do
+        = image_tag '/images/pictures.png', :alt => 'transport slideshow link'
+
+    .clear
+
+.group.dark_gray
+  .content
+    .application.construction
+    %h4 Construction
+    %p
+      Solutions: 
+      = link_to 'TRAM', tram_path
+    
+    %p
+      Standfast's flagship products TRAM (Total Restraint Access Module), is suitable for use in the building and construction industries. TRAM is the ideal safety system for preventing falls from height on earthmoving equipment, dozers, front-end loaders, cranes or gantries.
+    %h6 Concrete agitators
+    %p
+      The hazards of working on concrete agitators are well-known to those in the industry. TRAM prevents the risk of falling into the rotating bowl during a wash-out or when inspecting the mix. In all cases, the fall risk from an agitator is greatly increased by dust and wind combined with the shaking motion of the platform caused by the bowl's rotation. The existing handrails are too low to prevent a fall under hazardous conditions.
+    %p
+      TRAM holds the worker securely in place while allowing the full range of movement required to complete all inspections, maintenance and cleaning tasks efficiently and effectively. No other safety system in the world offers the same level of protection. When connected to a TRAM, you can not fall. For orders or enquiries, contact us.
+    %p
+      = link_to '', :id => 'slideshow-construction_link' do
+        = image_tag '/images/pictures.png', :alt => 'construction slideshow link'
+    .clear
+
+.group
+  .content
+    .application.wind
+    %h4 Wind
+    %p
+      Solutions: 
+      = link_to 'Wind TRAM', windtram_path
+    
+    %p
+      The TRAM Fall Protection System is now available for OEMs. Solutions for retro fitting existing wind turbines will be available in early April. 
+    %p
+      = link_to '', :id => 'slideshow-wind_link' do
+        = image_tag '/images/pictures.png', :alt => 'wind slideshow link'
+    .clear
+
+.group.dark_gray
+  .content
+    .application.agriculture
+    %h4 Agriculture
+    %p
+      Solutions: 
+      = link_to 'TRAM', tram_path
+
+    %p Grain quality control
+    %p
+      TRAM can also be used in grain quality control as it allows the user to access the top of the truck in complete safety to take grain samples for analysis and grading. For orders or enquires, contact us.      
+    %p
+      = link_to '', :id => 'slideshow-agriculture_link' do
+        = image_tag '/images/pictures.png', :alt => 'agriculture slideshow link'
+    .clear
+
+.group
+  .content
+    .application.air
+    %h4 Cranes &amp; Derricks
+    %p
+      Solutions: 
+      = link_to 'TRAM', tram_path
+    
+    %p TRAM the award-winning fall-prevention system is now been successfully fitted for all types of cranes after several years of pilot installations have successfully proven the concept.
+    %p TRAM has been retrofitted to multiple sizes and makes of both telescopic and lattice boom mobile cranes from 80t capacity upwards, as well as on gantry beams of overhead travelling cranes. 
+    %p The first crane installation was for Australian company Boom Logistics in 2008. Early crane installations required a custom fit for each application. However, with growing demand from crane owners worldwide, Standfast has now developed and refined its methodology for either welding, banding or clamping the rail to most crane types.
+    %p Crane owners that have already installed TRAM Fall Protection systems include Australian hire companies Boom Logistics and Hanchard Cranes, wind power company Suzlon Energy Australia, Ainscough Crane Hire of the UK and Royal Saan of the Netherlands.
+    %p
+      = link_to '', :id => 'slideshow-cranes_link' do
+        = image_tag '/images/pictures.png', :alt => 'crane slideshow link'
+      
+    .clear
+
+.group.dark_gray
+  .content
+    .application.fire
+    %h4 Fire
+    %p
+      Solutions: 
+      = link_to 'Fire TRAM', firetram_path
+    
+    %p
+      Fire TRAM is built on the same technology proven in the field since 2004. Around the world, major organizations rely on Standfast products to protect employees working at height or in dangerous conditions from the consequences of a fall. For many years, we've worked with organizations in various industries to analyze their unique fall hazards and provide innovative, cost-effective solutions.
+    %p
+      = link_to '', :id => 'slideshow-fire_link' do
+        = image_tag '/images/pictures.png', :alt => 'fire slideshow link'
+    .clear
+
+.group
+  .content
+    .application.mining
+    %h4 Mining
+    %p
+      Solutions: 
+      = link_to 'TRAM', tram_path
+    
+    %p
+      Reducing fatal accidents among mine workers is a concern for the mining industry world-wide. As the need to address mine safety issues becomes more pressing, those responsible for workers' health and safety are turning to Standfast's flagship product, TRAM.
+    %p
+      TRAM is the world's best safety system for preventing falls from height on earthmoving equipment, dozers, front-end loaders, cranes or gantries . TRAM is currently being used in the mining industry to allow riggers safe access to mobile crane booms, to protect maintenance workers on gantry and bridge cranes and to provide safe access to equipment mounted on the cab roofs of mobile plant machinery.
+    %p
+      In all of these applications, TRAM prevents miners falling from height and therefore avoids the risk of serious injury or a fatality.
+    %p
+      = link_to "MSHA supports the TRAM as an 'Accident Prevention' system for miners.", "http://www.msha.gov/Accident_Prevention/innovativeproducts/2005/tankerfallprotect.asp"
+    %p
+      = link_to '', :id => 'slideshow-mining_link' do
+        = image_tag '/images/pictures.png', :alt => 'mining slideshow link'
+    .clear
+
+.group.dark_gray
+  .content
+    .application.custom
+    %h4 Custom Engineered Solutions
+    %p
+      Solutions: 
+      = link_to 'Custom Engineered Solutions', custom_path
+    
+    %p Standfast's success comes from working alongside organizations in a range of industries to analyze fall hazards - then developing, designing and manufacturing solutions to overcome them.
+    %p We have re-designed and re-engineered TRAM to meet the needs of employers and employees in a wide range of industries.
+    %p
+      = link_to '', :id => 'slideshow-custom_link' do
+        = image_tag '/images/pictures.png', :alt => 'custom slideshow link'
+    .clear
+
+.group
+  .content
+    ¹Work Cover SA, Road Transport Fall Prevention Manual, published by the State Government of South Australia, 2005.
+
+- content_for :colorbox do
+  - groups.each do |group| 
+    %div{ :id => "slideshow-#{group[0]}" }
+      - group[1].times do |i| 
+        .viewer.standard{ :id => "image-container-#{i}", :class => "#{'hidden' if i != 0}" }
+          = image_tag "/images/slideshows/#{group[0]}/i-#{"%03d" % (i+1)}.png", :alt => "#{group[0]} image #{i}"
+      .colorbox-links.for-pics
+        = link_to_function 'Next', '', :id => "next-slideshow-#{group[0]}", :class => 'viewer-next'
+        = link_to_function 'Previous', '', :id => "previous-slideshow-#{group[0]}", :class => 'viewer-previous'
+      :javascript
+        colorbox_display("slideshow-#{group[0]}");
+
+
+- content_for :scripts do
+  :javascript
+    $('#industry_applications a').hover( function () { 
+      $('#industry_applications a').css('opacity', 0.3);
+      $(this).css('opacity', '1');
+    })
+    
+    setUpSlideshow();
+    

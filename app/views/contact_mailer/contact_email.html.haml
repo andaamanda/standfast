@@ -1,0 +1,19 @@
+%h2
+  = @name
+  says:
+%p
+  = @enquiry
+%br
+%br
+%p
+  Contact Information
+  %br
+  = @email
+  %br
+  == Company: #{@company}
+  %br
+  = @address
+  %br
+  == #{@city}, #{@state} #{@zip}
+  %br
+  = @phone

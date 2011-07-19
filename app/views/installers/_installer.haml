@@ -1,0 +1,7 @@
+.installer{ :class => "#{'distributor' if installer.distributor}"}
+  .vendor= installer.name
+  .contact= installer.contact
+  .phone= installer.phone
+  .address= link_to installer.address, "http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=#{installer.address}"
+  .notes= installer.notes
+  .clear

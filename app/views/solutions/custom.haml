@@ -1,0 +1,89 @@
+- videos = []
+- videos << ['custom-01', 'About Custom Designs']
+- videos << ['custom-above', 'Custom Above']
+- videos << ['custom-bathurst', 'Custom Bathurst']
+- videos << ['custom-catepillar', 'Custom Catepillar']
+- videos << ['custom-side', 'Custom Side']
+- videos << ['custom-station', 'Custom Station']
+- videos << ['custom-wall', 'Custom Wall']
+
+= render '/shared/subnav'
+
+.group
+  .content.no_padding
+    #main_image
+      = image_tag '/images/solutions/custom/custom-main.png', :alt => 'Custom engineered solutions'
+
+.group
+  .content
+    .left.wide
+      %h2
+        Custom Engineered Solutions
+      %p Standfast's success comes from working alongside organizations in a range of industries to analyze fall hazards - then developing, designing and manufacturing solutions to overcome them.
+      %p We have re-designed and re-engineered TRAM to meet the needs of employers and employees in a wide range of industries.
+      
+      %h3 R&D
+      %p At Standfast, we are continually researching to refine existing products and develop new ones. Our process for R&D enquiries is as follows:
+      %ul
+        %li Identify the problem (risk assessment)
+        %li Determine what information is needed to make a decision about the problem
+        %li Design a method to collect the data to formulate a solution
+        %li Capture the data and review other information, such as government statistics, legislation and standards compliance
+        %li analyze and interpret results to determine compliance
+        %li Develop a solutions-based action plan and quotation
+        %li Submit quotation and plan for approval
+      %p We often receive requests from contractors, manufacturers and individuals seeking a solution to an identified safety hazard. Once the request has been verified and is viable, Standfast engineers develop a prototype and determine whether a test schedule is warranted. The recommendation is then forwarded to the client, who, if a concept test is approved, remains in the process up to the point of manufacture. If you would like to propose an improvement to the way an existing workplace hazard is addressed, or are seeking a new concept or solution for an identified safety hazard, please click here to submit your comments.
+      %p Please make sure your request includes the following:
+      %ul
+        %li Any schematics or graphics you have developed
+        %li As detailed description of the issue and your proposal
+        %li A reliable contact name and phone number
+        %li A purchase order where appropriate
+      
+      
+      
+    .right.narrow
+      %p
+        = link_to '', :id => 'custom-videos_link' do
+          = image_tag '/images/solutions/custom/watch-custom.jpg', :alt => 'Watch a preview', :class => 'shadowed'
+      %p
+        = link_to '', :id => 'slideshow_link' do
+          = image_tag '/images/pictures.png', :alt => 'slideshow link'
+
+      = render 'links'
+      
+    .clear
+
+- content_for :colorbox do
+  #custom-videos
+    - videos.each_with_index do |video, i| 
+      .viewer{ :id => "#{video[0]}-container", :class => "#{'hidden' if i != 0}" }
+        %div{ :id => "#{video[0]}" }
+          .flash_warning
+            Currently loading movie. Please make sure you have
+            = link_to 'flash', 'http://get.adobe.com/flashplayer/'
+            installed.
+    .colorbox-links.for-video
+      - videos.each_with_index do |video, i| 
+        = link_to_function "#{video[1]}", '', :id => "link-#{video[0]}-container", :class => "#{'active' if i == 0}"
+
+  #slideshow
+    - 46.times do |i| 
+      .viewer.standard{ :id => "image-container-#{i}", :class => "#{'hidden' if i != 0}" }
+        = image_tag "/images/slideshows/custom/i-#{"%03d" % (i+1)}.png", :alt => "slideshow image #{i}"
+    .colorbox-links.for-pics
+      = link_to_function 'Next', '', :id => 'next-slideshow', :class => 'viewer-next'
+      = link_to_function 'Previous', '', :id => 'previous-slideshow', :class => 'viewer-previous'
+
+- content_for :scripts do
+  :javascript
+    colorbox_display('custom-videos');
+    colorbox_display('slideshow');
+    setUpTheatre();
+    setUpSlideshow();
+
+    var params = { bgcolor: "#000000", allowscriptaccess: "always", allowfullscreen: "true" };
+    var attributes = {};
+  - videos.each do |video| 
+    :javascript
+      swfobject.embedSWF('/standfast.swf', "#{video[0]}", "400", "300", "9.0.0", '/expressInstall.swf', { file: "#{s3_url('videos/'+ video[0] + '.flv')}" }, params, attributes);

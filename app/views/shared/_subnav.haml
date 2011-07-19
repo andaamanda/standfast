@@ -1,0 +1,19 @@
+#subnav_container.content
+  #subnav.content
+    = link_to 'TRAM', tram_path, :id => 'tram_subnav'
+    = link_to 'ISO TRAM', isotram_path, :id => 'isotram_subnav'
+    = link_to 'Wind TRAM', windtram_path, :id => 'windtram_subnav'
+    = link_to 'Fire TRAM', firetram_path, :id => 'firetram_subnav'
+    = link_to 'Rail TRAM', railtram_path, :id => 'railtram_subnav'
+    = link_to 'Custom', custom_path, :id => 'custom_subnav'
+    = link_to 'T-Line', tline_path, :id => 'tline_subnav'
+
+  - content_for :scripts do
+    :javascript
+      $('#subnav a').mouseover( function () {
+        index = $(this).index();
+        position = (index * -810) + 100;
+        $('#images').stop(true, true).animate( { left:position }, 400, 'easeInOutSine' );
+      })
+    
+    

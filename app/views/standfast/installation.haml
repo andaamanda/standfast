@@ -1,0 +1,41 @@
+.group
+  .content.center
+    = image_tag '/images/standfast/installation/parts.png', :alt => 'parts'
+
+.group
+  .content
+    %h2 Installation Network
+    %p
+      Find installers and distributors near you.
+    Search by state:
+    %select{ :id => 'select_state' }
+      - ["All States","AL","AK","AS","AZ","AR","CA","CO","CT","DE","DC","FM","FL","GA","GU","HI","ID","IL","IN","IA","KS","KY","LA","ME","MH","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","MP","OH","OK","OR","PW","PA","PR","RI","SC","SD","TN","TX","UT","VT","VI","VA","WA","WV","WI","WY"].each do |abbreviation| 
+        %option= abbreviation
+    %select{ :id => 'select_type' }
+      - ["All", "Just Distributors"].each do |type| 
+        %option= type
+
+    %br
+    %br
+    #vendors
+      = render @installers
+      .clear
+
+- content_for :scripts do
+  :javascript
+    $('#select_state, #select_type').change(function(){
+      $('.installer').show();
+      
+      type = $("#select_type").val();
+      if (type == 'Just Distributors'){
+        $('.installer').hide();
+        $('.distributor').show();
+      }
+      
+      abbreviation = $("#select_state").val();
+      if (abbreviation != 'All States'){
+        matches = $("div.address:contains(" + abbreviation + ")").parent();
+        $('.installer').not(matches).hide();
+      }
+      
+    })

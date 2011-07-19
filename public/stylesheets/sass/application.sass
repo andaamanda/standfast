@@ -1,0 +1,812 @@
+// Reset
+*
+  margin: 0px
+  padding: 0px
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, address, em, img, strike, tt, b, i, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td
+  margin: 0px
+  padding: 0px
+  border: 0px
+  outline: 0px
+  vertical-align: baseline
+  background: transparent
+  font-weight: normal
+ol, ul
+  list-style: none
+table
+  border-collapse: collapse
+  border-spacing: 0
+a
+  text-decoration: none
+.clear
+  zoom: 1
+  content: '.'
+  display: block
+  height: 0px
+  clear: both
+  visibility: hidden
+  width: 100%
+.left
+  float: left
+.right
+  float: right
+.narrow
+  width: 320px
+.wide
+  width: 600px
+.center
+  text-align: center
+.hidden
+  display: none
+
+// ColorBox Core Style. The following rules are the styles that are consistant between themes. Avoid changing this area to maintain compatability with future versions of ColorBox.
+#colorbox, #cboxOverlay, #cboxWrapper
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 9999
+#cboxOverlay
+  position: fixed
+  width: 100%
+  height: 100%
+#cboxMiddleLeft, #cboxBottomLeft
+  clear: left
+#cboxContent
+  position: relative
+#cboxLoadedContent
+  overflow: auto
+#cboxLoadedContent iframe
+  display: block
+  width: 100%
+  height: 100%
+  border: 0
+#cboxTitle
+  margin: 0
+#cboxLoadingOverlay, #cboxLoadingGraphic
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow
+  cursor: pointer
+#colorbox, #cboxOverlay, #cboxWrapper
+  overflow: visible !important
+#cboxOverlay
+  // 
+#colorbox
+  -moz-box-shadow: 0px 0px 10px #000
+  -webkit-box-shadow: 0px 0px 10px #000
+  box-shadow: 0px 0px 10px #000
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')"
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')
+  #cboxContent
+    background-color: #000
+    padding: 30px
+    color: #999
+    height: 500px
+    color: #fff
+    #colorbox h2
+      color: #fff !important
+    #cboxLoadedContent
+      margin-bottom: 0px
+    #cboxTitle
+      position: absolute
+      bottom: 4px
+      left: 0
+      text-align: center
+      width: 100%
+      color: #fff
+    #cboxCurrent
+      position: absolute
+      bottom: 4px
+      left: 58px
+      color: #fff
+    #cboxSlideshow
+      position: absolute
+      bottom: 4px
+      right: 30px
+      color: #fff
+    #cboxPrevious
+      position: absolute
+      bottom: 0
+      left: 0px
+      background: url(/images/colorbox/controls.png) no-repeat -75px 0px
+      width: 25px
+      height: 25px
+      text-indent: -9999px
+    #cboxPrevious.hover
+      background-position: -75px -25px
+    #cboxNext
+      position: absolute
+      bottom: 0
+      left: 27px
+      background: url(/images/colorbox/controls.png) no-repeat -50px 0px
+      width: 25px
+      height: 25px
+      text-indent: -9999px
+    #cboxNext.hover
+      background-position: -50px -25px
+    #cboxLoadingOverlay
+      background-color: #000
+    #cboxLoadingGraphic
+      background: transparent url(/images/colorbox/loading.gif) no-repeat center center
+    #cboxClose
+      position: absolute
+      top: 30px
+      right: 30px
+      background: url(/images/colorbox/close.png) no-repeat 0px 0px
+      width: 30px
+      height: 30px
+      text-indent: -9999px
+
+// fonts
+@font-face
+  font-family: 'colaborate'
+  src: url('/fonts/ColabLig-webfont.eot')
+  src: local('colaborate'), url('/fonts/ColabLig-webfont.woff') format('woff'), url('/fonts/ColabLig-webfont.ttf') format('truetype'), url('/fonts/ColabLig-webfont.svg#webfontrw6WOifO') format('svg')
+  font-weight: normal
+  font-style: normal
+@font-face
+  font-family: 'colaborate_medium'
+  src: url('/fonts/ColabMed-webfont.eot')
+  src: local('colaborate_medium'), url('/fonts/ColabMed-webfont.woff') format('woff'), url('/fonts/ColabMed-webfont.ttf') format('truetype'), url('/fonts/ColabMed-webfont.svg#webfontpFO0A3fx') format('svg')
+  font-weight: normal
+  font-style: normal
+
+body
+  color: #757575
+
+a
+  color: #EB7206
+  font-family: 'colaborate', sans-serif
+  -webkit-transition: 1s
+  &:hover
+    color: #151515
+
+h2, h3, h4, h5, h6
+  padding-bottom: 0.5em
+  font-family: 'colaborate_medium'
+  line-height: 1em
+  color: #666
+h2
+  font-size: 1.75em
+h3, h4, h5
+  font-size: 1.5em
+h6
+  font-size: 1em
+  color: #888 !important
+
+.bold
+  font-family: 'colaborate_medium'
+
+.dark_gray h2,
+.dark_gray h3,
+.dark_gray h4,
+.dark_gray h5,
+.dark_gray h6
+  color: #ccc
+.dark_gray
+  color: #efefef
+
+p
+  padding-bottom: 25px
+
+.small
+  font-size: 0.8em
+  
+// form
+.form_line
+  margin: 0px 0px 1px 0px
+  padding: 0px 0px 1px 0px
+label, input, textarea
+  font-family: 'colaborate', 'sans-serif'
+  float: left
+  display: block
+  border: 0px
+  margin: 0px
+  padding: 0px
+label
+  cursor: pointer
+  width: 150px
+input, textarea
+  font-size: 1em
+  width: 430px
+  padding: 10px
+textarea
+  height: 4em
+input[type=submit]
+  margin: 0px 0px 0px 150px
+  color: #fff
+  background: transparent url('/images/bg_gray_dark.png') repeat scroll 0px 0px
+  padding: 10px !important
+  width: 450px !important
+  font-size: 1em !important
+  text-align: left !important
+input[type=submit]:hover
+  background: transparent url('/images/nav/highlight.png') repeat-x scroll 0px -200px
+  cursor: pointer
+
+.error
+  padding: 3px 0px 3px 150px
+  color: red
+.errors
+  color: red
+
+// layout
+@mixin drop_shadow()
+  -moz-box-shadow: 0px 0px 10px #999
+  -webkit-box-shadow: 0px 0px 10px #999
+  box-shadow: 0px 0px 10px #999
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')"
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')
+@mixin drop_shadow_shallow()
+  -moz-box-shadow: 0px 5px 5px #000
+  -webkit-box-shadow: 0px 5px 5px #000
+  box-shadow: 0px 5px 5px #000
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')"
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')
+@mixin drop_shadow_dark()
+  -moz-box-shadow: 0px 0px 10px #000
+  -webkit-box-shadow: 0px 0px 10px #000
+  box-shadow: 0px 0px 10px #000
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')"
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')
+  
+body
+  background: transparent url('/images/bg_gray_light.png') repeat scroll center 0px
+  font-family: 'colaborate', 'sans-serif'
+  font-size: 100%
+  line-height: 140%
+  padding-top: 1px !important
+  position: relative
+.no_margin
+  margin: 0px !important
+.no_padding
+  padding: 0px !important
+.padding
+  padding: 25px !important
+.margin
+  margin: 0px 0px 25px 0px
+div.group
+  margin: 0px 0px 25px 0px
+  overflow: visible
+div.content
+  margin: 0px auto
+  padding: 25px 
+  width: 1000px
+  overflow: visible
+.dark_gray
+  background: transparent url('/images/bg_gray_dark.png') repeat scroll 0px 0px
+  border-top: 1px solid #000
+  border-bottom: 2px groove #fff
+.shadow
+  background: transparent url('/images/shadow.png') repeat-x scroll 0px bottom
+  border-bottom: 2px groove #fff
+.shadowed
+  @include drop_shadow()
+.line
+  background: transparent url('/images/bg_gray_medium.png') repeat-x scroll 0px top
+  border-top: 1px groove #fff
+  height: 27px
+a.button
+  background:
+    image: url('/images/buttons.png')
+    repeat: no-repeat
+  height: 19px
+  width: 212px
+  font:
+    size: 16px
+    family: 'colaborate', sans-serif
+  line-height: 20px
+  padding: 25px
+  color: #fff
+  text-align: center
+  display: block
+  -webkit-transition: 0s
+a.button.blue
+  background-position: 0px 0px
+  &:hover
+    background-position: 0px -138px
+  &:active
+    background-position: 0px -276px
+a.button.orange
+  background-position: 0px -69px
+  &:hover
+    background-position: 0px -207px
+  &:active
+    background-position: 0px -345px
+.dot
+  height: 46px
+  width: 46px
+  background: transparent url('/images/dot.png') no-repeat scroll 0px 0px
+  position: absolute
+  z-index: 4
+  
+div#nav
+  background: transparent url('/images/bg_gray_medium.png') repeat-x scroll 0px top
+  .content
+    position: relative
+    padding: 0px 25px !important
+  a
+    display: block
+    float: left
+    margin: 0px
+    font: 14px regular 'colaborate', sans-serif
+    color: #A7A9AC
+    -webkit-transition: 0s
+  a.nav
+    padding: 100px 15px 25px 15px 
+    &:hover
+      color: #fff
+      background: transparent url('/images/nav/highlight.png') repeat-x scroll 0px 0px
+      @include drop_shadow()
+    
+  a#standfast
+    height: 36px
+    width: 174px
+    background: transparent url('/images/nav/standfast.png') no-repeat scroll 0px 0px
+    margin: 90px 20px 0px 0px
+  a#tram_nav,
+  a#tline_nav
+    background:
+      image: url('/images/nav/logos.png')
+      repeat: no-repeat
+    width: 85px
+  a#tram_nav
+    margin: 95px 15px 0px 0px
+    height: 30px
+    background-position: 0px 0px
+    &:hover
+      background-position: 0px -30px
+  a#tline_nav
+    margin: 91px 15px 0px 0px
+    height: 36px
+    background-position: 0px -60px
+    &:hover
+      background-position: 0px -96px
+  a#standfast,
+  a#tram_nav,
+  a#tline_nav
+    padding: 0px
+  .nav_line
+    padding: 75px 0px 0px 0px
+    margin: 0px 20px 0px 0px
+    float: left
+  a#change_location_link
+    background: 
+      image: url('/images/nav/usa.png')
+      repeat: no-repeat
+      position: 0px 0px
+    margin: 95px 0px 0px 0px
+    padding: 25px 0px 0px 30px
+    font-size: 10px
+    float: right
+  a#change_location_link:hover
+    background-position: 0px -175px
+    color: #666
+body.solutions a#solutions_nav,
+body.solutions a#solutions_nav:hover,
+body.installation a#installation_nav,
+body.installation a#installation_nav:hover,
+body.installers a#installation_nav,
+body.installers a#installation_nav:hover,
+body.standfast.about a#about_nav,
+body.standfast.about a#about_nav:hover,
+body.standfast.support a#support_nav,
+body.standfast.support a#support_nav:hover,
+body.standfast.contact a#contact_nav,
+body.standfast.contact a#contact_nav:hover,
+body.standfast.email a#contact_nav,
+body.standfast.email a#contact_nav:hover
+  background: transparent url('/images/nav/highlight.png') repeat-x scroll 0px -200px
+  color: #fff
+  @include drop_shadow()
+
+.solutions.index #subnav
+  position: absolute !important
+  top: 375px !important
+  left: 0px !important
+  z-index: 5
+#subnav_container
+  z-index: 5
+#subnav_container.content
+  padding: 0px !important
+#subnav
+  background: transparent url('/images/nav/bg_subnav.png') no-repeat scroll 0px 0px
+  height: 40px
+  position: relative
+  margin: 0px auto 25px auto
+  padding: 0px
+  a
+    font:
+      size: 16px
+      family: 'colaborate', sans-serif
+    color: #A7A9AC
+    display: block
+    position: absolute
+    top: 0px
+    z-index: 5
+    padding: 10px 20px
+    line-height: 20px
+    float: left
+    height: 79px
+    text-align: center
+    width: 80px
+    margin: 0px 10px 0px 0px
+    -webkit-transition: 0s
+    &:hover
+      background: transparent url('/images/nav/highlight.png') repeat-x scroll 0px -400px
+  a#tram_subnav
+    left: 40px
+  a#isotram_subnav
+    left: 170px
+  a#windtram_subnav
+    left: 300px
+  a#firetram_subnav
+    left: 430px
+  a#railtram_subnav
+    left: 560px
+  a#custom_subnav
+    left: 690px
+  a#tline_subnav
+    left: 820px
+    
+body.tram a#tram_subnav,
+body.tram a#tram_subnav:hover,
+body.isotram a#isotram_subnav,
+body.isotram a#isotram_subnav:hover,
+body.windtram a#windtram_subnav,
+body.windtram a#windtram_subnav:hover,
+body.firetram a#firetram_subnav,
+body.firetram a#firetram_subnav:hover,
+body.tline a#tline_subnav,
+body.tline a#tline_subnav:hover,
+body.railtram a#railtram_subnav,
+body.railtram a#railtram_subnav:hover,
+body.custom a#custom_subnav,
+body.custom a#custom_subnav:hover
+  background: transparent url('/images/nav/highlight.png') repeat-x scroll 0px -500px
+  color: #fff
+
+#locations
+  float: left
+  margin: 0px 0px 0px 50px
+  width: 400px
+#footer
+  margin-bottom: 50px
+  #legal
+    a
+      display: block
+      float: left
+      margin: 0px 0px 0px 15px
+  div#quote.dark_gray
+    color: #757575
+    margin: 130px 0px 0px 0px
+    .content
+      height: 80px
+      position: relative
+      margin-bottom: 0px
+      #the_quote
+        position: absolute
+        bottom: 25px
+        left: 10px
+        height: 176px
+        width: 942px
+        background: transparent url('/images/footer/quote.png') no-repeat scroll 0px 0px
+        padding: 30px 30px 0px 30px
+      #author
+        position: absolute
+        bottom: 25px
+        left: 0px
+        color: #A7A9AC
+        font-weight: bold
+        font-size: 20px
+  
+.standfast.index
+  #main_display
+    padding: 0px 12px
+    position: relative
+    height: 354px
+    .main_image
+      height: 310px
+      width: 320px
+      float: left
+      margin: 0px 3px 0px 0px
+      @include drop_shadow()
+    #main_description
+      width: 301px
+      height: 149px
+      background: transparent url('/images/standfast/main_description.png') no-repeat scroll 0px 0px
+      position: absolute
+      display: block
+      left: 130px 
+      top: 215px
+      padding: 35px 100px 0px 350px
+      color: #efefef !important
+  #trust
+    margin-top: 150px
+    .content
+      position: relative
+      padding: 40px 25px
+    #trust_image
+      position: absolute
+      bottom: 0px
+      left: 0px
+      height: 303px
+    #trust_description
+      width: 400px
+  #tram_exploded
+    background:  transparent url('/images/standfast/tram_exploded.png') no-repeat scroll right 0px
+    height: 561px
+
+// solutions
+#main_image
+  position: relative
+  height: 340px
+  overflow: visible
+  @include drop_shadow()
+#hover_description
+  position: absolute
+  width: 300px
+  padding: 25px
+  background: transparent url('/images/nav/highlight.png') repeat-x scroll 0px 0px
+  color: #fff
+  z-index: 3
+  p
+    font-size: 12px
+    padding: 0px
+    margin: 0px
+  
+#slider
+  height: 450px
+  overflow: hidden
+  padding: 10px 0px 0px 0px
+  .content
+    position: relative
+    padding: 0px
+    #images
+      position: absolute
+      left: 100px
+      top: 0px
+      a
+        width: 800px
+        position: absolute
+        top: 0px
+        @include drop_shadow()
+      a#tram
+        left: 0px
+      a#isotram
+        left: 810px
+      a#windtram
+        left: 1620px
+      a#firetram
+        left: 2430px
+      a#railtram
+        left: 3240px
+      a#custom
+        left: 4050px
+      a#tline
+        left: 4860px
+
+.application
+  background:
+    image: url('/images/solutions/applications.jpg')
+    repeat: no-repeat
+  height: 220px
+  width: 235px
+  float: right
+  margin: 0px 0px 0px 25px
+  @include drop_shadow_dark()
+.application.transportation
+  background-position: 0px 0px
+.application.construction
+  background-position: -235px 0px
+.application.mining
+  background-position: -470px -220px
+.application.agriculture
+  background-position: -705px 0px
+.application.air
+  background-position: 0px -220px
+.application.fire
+  background-position: -235px -220px
+.application.wind
+  background-position: -470px 0px
+.application.custom
+  background-position: -705px -220px
+
+// about
+#people
+  position: relative
+  padding: 0px 100px
+  height: 350px
+#more_information
+  position: absolute
+  top: 335px
+  left: 725px
+  z-index: 5
+  width: 301px
+  height: 60px
+  background: transparent url('/images/standfast/about/more_information.png') no-repeat scroll 0px 0px
+#bio_information
+  position: absolute
+  top: -10px
+  left: 90px
+  width: 770px
+  z-index: 2
+  background: transparent url('/images/bg_gray_light.png') repeat scroll 0px 0px
+  @include drop_shadow()
+.person_spacer
+  width: 200px
+  height: 175px
+  margin: 0px 10px 0px 0px
+  float: left
+.person
+  background:
+    color: #979797
+    image: url('/images/standfast/about/people.png')
+    repeat: no-repeat
+  height: 175px
+  width: 200px
+  float: left
+  cursor: pointer
+  position: relative
+  z-index: 3
+  &:hover .person-title
+    color: #fff
+    background: transparent url('/images/nav/highlight.png') repeat-x scroll 0px -650px
+  &.hover .person-title,
+  &:active .person-title,
+  &.active .person-title
+    display: none
+  .person-title
+    -webkit-transition: 1s
+    background: transparent url('/images/nav/highlight.png') repeat-x scroll 0px -600px
+    display: block
+    color: #999 
+    cursor: pointer
+    font-size: 0.8em
+    padding: 6px
+    text-align: center
+    height: 25px
+    margin: 130px 0px 0px 0px
+    @include drop_shadow_dark()
+    
+.person.blank
+  background-image: none !important
+.person.blank.alt
+  background-color: #303030
+#baker.person
+  background-position: 0px 0px
+  &:hover,
+  &.hover
+    background-position: 0px -175px
+#zackrison.person
+  background-position: -400px 0px
+  &:hover,
+  &.hover
+    background-position: -400px -175px
+#bolton.person
+  background-position: -200px 0px
+  &:hover,
+  &.hover
+    background-position: -200px -175px
+#gastevich.person
+  background-position: -600px 0px
+  &:hover,
+  &.hover
+    background-position: -600px -175px
+#bliese.person
+  background-position: -800px 0px
+  &:hover,
+  &.hover
+    background-position: -800px -175px
+#dowd.person
+  background-position: -400px -350px
+  &:hover,
+  &.hover
+    background-position: -400px -525px
+#davis.person
+  background-position: 0px -350px
+  &:hover,
+  &.hover
+    background-position: 0px -525px
+#tracy.person
+  background-position: -200px -350px
+  &:hover,
+  &.hover
+    background-position: -200px -525px
+
+#map
+  width: 800px
+  margin: 0px auto
+  height: 300px
+  @include drop_shadow()
+
+.header
+  color: #999
+  background-color: #000
+  margin: 0px 0px 20px 0px
+.installer
+  margin: 0px 0px 20px 0px
+  border-bottom: 1px solid #fff
+.installer .vendor,
+.installer .contact,
+.installer .phone,
+.installer .address,
+.installer .notes
+  float: left
+  padding: 10px
+  font-size: 0.8em
+.installer .vendor
+  width: 150px
+.installer .contact
+  width: 100px
+.installer .phone
+  width: 100px
+.installer .address
+  width: 200px
+.installer .notes
+  width: 340px
+
+a#logout
+  position: fixed
+  z-index: 4
+  top: 0px
+  right: 50px
+  display: block
+  padding: 20px 20px 10px 20px
+  color: #fff
+  @include drop_shadow()
+  font-size: 0.8em
+  background: transparent url('/images/nav/highlight.png') repeat-x scroll 0px 0px
+  -webkit-transition: 0s
+a#logout:hover
+  background: transparent url('/images/nav/highlight.png') repeat-x scroll 0px -200px
+
+.quote p
+  margin: 0px
+  padding-bottom: 10px
+.author
+  padding-bottom: 3em
+  color: #0B419F
+
+ul
+  padding: 0px 0px 0px 30px
+li
+  margin: 0px 0px 10px 0px
+  list-style-type: square
+
+.viewer
+  background: transparent url('/images/colorbox/loading.gif') no-repeat center center
+  position: absolute
+  top: 30px
+  right: 300px
+  z-index: 9
+  @include drop_shadow_dark()
+.colorbox-links
+  padding-top: 50px
+.colorbox-links a
+  display: block
+  background-color: #222
+  padding: 6px
+  margin: 0px 0px 1px 0px
+  text-align: right
+  &:hover
+    background-color: #353535
+    color: #FF8A34
+  &:active,
+  &.active
+    color: #000
+    background-color: #666
+
+.standard
+  width: 400px
+  height: 300px 
+  overflow: hidden
+
+.flash_warning
+  height: 300px
+  a:hover
+    color: #EB7206 !important
+object
+  display: block !important
+

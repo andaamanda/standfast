@@ -1,0 +1,14 @@
+defaults: &defaults
+  host: '127.0.0.1'
+  port: 27017
+  database: <%= "standfast-#{Rails.env}" %>
+  
+development:
+  <<: *defaults
+  
+production:
+  <<: *defaults
+  uri: <%= ENV['MONGOLAB_URI'] %>
+  
+test:
+  <<: *defaults

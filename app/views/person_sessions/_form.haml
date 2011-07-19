@@ -1,0 +1,14 @@
+- unless @person_session.errors.blank?
+  %p.errors
+    Sorry we couldn't log you in, please try again.
+
+.form_line
+  = label :person_session, :email, 'Email'
+  = text_field :person_session, :email, :placeholder => "e.g. cameron@standfastusa.com"
+  .clear
+.form_line
+  = label :person_session, :password, 'Password'
+  = password_field :person_session, :password
+  .clear
+
+.clear

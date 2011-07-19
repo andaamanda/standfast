@@ -1,0 +1,77 @@
+- videos = []
+- videos << ['isotram-01', 'About ISO TRAM']
+- videos << ['iso-ladder', 'Ladder Addition']
+
+= render '/shared/subnav'
+
+.group
+  .content.no_padding
+    #main_image
+      = image_tag '/images/solutions/isotram/main-isotram.png', :alt => 'ISO TRAM system'
+
+.group
+  .content
+    .left.wide
+      %h2
+        ISO TRAM
+      %p ISO TRAM is a height safety system specifically designed to protect those working on ISO containers. The system comprises a rail-mounted TRAM unit fixed to a transportable frame. The frame is lifted into place by a light forklift and then locked into position at the ISO connections. It can be supplied with or without a ladder and walkway.
+      %p The risk of a fall from an ISO tank container is well-documented, with the transfer from the ladder to the top of the tank being the most dangerous aspect of the operation. Tank containers are often accessed from a road trailer, which can be 4m (13') above the ground. ISO TRAM was developed in close consultation with the transport industry to address this serious health and safety risk.
+      %p ISO TRAM is the only system in the world that protects the user while transferring from the ladder to the top of the tank. When connected to ISO TRAM, you can not fall.
+
+      %h3 Advantages of ISO TRAM
+      %ul
+        %li Easy for operators to use
+        %li Simple to clean and maintain
+        %li Price competitive
+        %li Works under all conditions
+        %li Lightweight, averaging <420lb (<190kg) in total
+        %li Easily installed within minutes
+        %li Training packages available
+        %li Able to be transported with ISO tanks
+      
+    .right.narrow
+      %p
+        = link_to '', :id => 'isotram-videos_link' do
+          = image_tag '/images/solutions/isotram/watch-isotram.jpg', :alt => 'Watch a preview', :class => 'shadowed'
+      %p
+        = link_to '', :id => 'slideshow_link' do
+          = image_tag '/images/pictures.png', :alt => 'slideshow link'
+
+      = render 'links'
+      
+    .clear
+    
+- content_for :colorbox do
+  #isotram-videos
+    - videos.each_with_index do |video, i| 
+      .viewer{ :id => "#{video[0]}-container", :class => "#{'hidden' if i != 0}" }
+        %div{ :id => "#{video[0]}" }
+          .flash_warning
+            Currently loading movie. Please make sure you have
+            = link_to 'flash', 'http://get.adobe.com/flashplayer/'
+            installed.
+    .colorbox-links.for-video
+      - videos.each_with_index do |video, i| 
+        = link_to_function "#{video[1]}", '', :id => "link-#{video[0]}-container", :class => "#{'active' if i == 0}"
+
+  #slideshow
+    - 13.times do |i| 
+      .viewer.standard{ :id => "image-container-#{i}", :class => "#{'hidden' if i != 0}" }
+        = image_tag "/images/slideshows/isotram/i-#{"%03d" % (i+1)}.png", :alt => "slideshow image #{i}"
+    .colorbox-links.for-pics
+      = link_to_function 'Next', '', :id => 'next-slideshow', :class => 'viewer-next'
+      = link_to_function 'Previous', '', :id => 'previous-slideshow', :class => 'viewer-previous'
+
+
+- content_for :scripts do
+  :javascript
+    colorbox_display('isotram-videos');
+    colorbox_display('slideshow');
+    setUpTheatre();
+    setUpSlideshow();
+
+    var params = { bgcolor: "#000000", allowscriptaccess: "always", allowfullscreen: "true" };
+    var attributes = {};
+  - videos.each do |video| 
+    :javascript
+      swfobject.embedSWF('/standfast.swf', "#{video[0]}", "400", "300", "9.0.0", '/expressInstall.swf', { file: "#{s3_url('videos/'+ video[0] + '.flv')}" }, params, attributes);

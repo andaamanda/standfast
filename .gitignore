@@ -1,0 +1,5 @@
+.DS_STORE
+.bundle
+log/*.log
+tmp/
+config/environments/development.rb
