@@ -28,8 +28,6 @@ class StandfastController < ApplicationController
   end
 
   def installation
-    redirect_to installers_path if current_person
-    
     @title = "Installers"
     @description = "Find Standfast product installers and distributors near you."
     @installers = Installer.all
