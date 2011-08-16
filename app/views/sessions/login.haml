@@ -1,0 +1,15 @@
+.content.group
+  %h2
+    Log In
+  
+  = form_for :session, :url => login_url do |form| 
+    .form_line
+      = form.label :email
+      = form.email_field :email, :placeholder => 'e.g. you@somewhere.com', :tabindex => 1
+      .clear
+    .form_line
+      = form.label :password
+      = form.password_field :password, :tabindex => 2
+      .clear
+    = form.submit "Log In", :tabindex => 3
+  .clear

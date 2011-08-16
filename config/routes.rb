@@ -69,10 +69,13 @@ Standfast::Application.routes.draw do
   
   resources :installers
   
-  # resources :person_sessions
-  match 'logout' => 'person_sessions#destroy', :as => :logout
-  match 'login' => 'person_sessions#new', :as => :login
-  match 'sessions' => 'person_sessions#create', :as => :sessions
+  # login
+  match '/login' => 'sessions#login'
+  get '/logout' => 'sessions#logout'
+  
+  get 'news' => 'posts#index'
+  resources :posts
+  
   # Sample resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
