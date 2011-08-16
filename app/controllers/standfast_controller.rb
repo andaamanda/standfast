@@ -83,4 +83,8 @@ class StandfastController < ApplicationController
     @description = "Legal information."
   end
   
+  def gsa
+    @title = "GSA"
+    @description = "Standfast with the US General Service Administration."
+  end
 end

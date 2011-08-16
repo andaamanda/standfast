@@ -65,6 +65,8 @@ Standfast::Application.routes.draw do
   match 'tline' => "solutions#tline"
   match 'custom' => "solutions#custom"
   
+  get '/gsa' => 'standfast#gsa'
+  
   resources :installers
   
   # resources :person_sessions
