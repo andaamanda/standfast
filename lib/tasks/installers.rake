@@ -1,7 +1,7 @@
 namespace :installers do
   desc 'import a dataset supplied in the default format'
   task :import => :environment do
-    require 'fastercsv'
+    require 'csv'
 
     def status(counter, total, message)
       printf("\r#{message} #{counter}/#{total}")
@@ -16,7 +16,7 @@ namespace :installers do
     dataset_total = @total = `wc -l #{file}`.chop.to_i
     loop_index = 0
     
-    FasterCSV.foreach(file, :headers => true, :header_converters => lambda { |h| h.strip.downcase.tr(" ", "_").delete("^a-z0-9_").to_sym}) do |row|
+    CSV.foreach(file, :headers => true, :header_converters => lambda { |h| h.strip.downcase.tr(" ", "_").delete("^a-z0-9_").to_sym}) do |row|
       loop_index += 1
       
       attributes = {
