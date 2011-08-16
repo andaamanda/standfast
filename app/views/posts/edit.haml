@@ -1,3 +1,7 @@
 .content
-  %h2== Editing #{@post.title}
-  = render 'form'
+  .left.wide
+    %h2== Editing #{@post.title}
+    = render 'form'
+  .right.narrow
+    = render 'redcloth'
+  .clear

@@ -1,0 +1,22 @@
+%p
+  You can format text in 'content' field using
+  = link_to 'RedCloth.', "http://redcloth.org/textile/", :target => '_new'
+%p
+  Link Example
+  %br
+  "Cool link":/url
+  %br
+  Will yield:
+  = link_to 'Cool link', '/url'
+%p
+  List Example
+  %br
+  * People
+  %br
+  ** Men
+  %br
+  ** Women
+  %br
+  Will yield:
+
+=raw RedCloth.new("* People\n** Men\n** Women").to_html
