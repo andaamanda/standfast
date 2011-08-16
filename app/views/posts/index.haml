@@ -1,2 +1,16 @@
 .content
-  %h2 News
+  .left.wide.group
+    %h2 Standfast News
+    = render @posts
+    - if @page > 1
+      = link_to 'Previous', news_path({ :page => (@page-1) })
+    - if @more
+      = link_to 'Next', news_path({ :page => (@page+1) })
+
+  .right.narrow.group
+    - if current_user
+      = link_to 'New Article', new_post_path, :class => 'button orange'
+    - else
+      = render '/solutions/links'
+
+  .clear

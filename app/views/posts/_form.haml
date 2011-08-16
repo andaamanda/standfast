@@ -1,0 +1,14 @@
+= form_for @post do |form| 
+  .form_line
+    = form.label :title
+    = form.text_field :title, :tabindex => 1
+    .clear
+  .form_line
+    = form.label :content
+    = form.text_area :content, :tabindex => 2
+    .clear
+  
+  = form.hidden_field :user_id, :value => current_user._id
+  
+  = form.submit "Post!", :tabindex => 3
+  .clear

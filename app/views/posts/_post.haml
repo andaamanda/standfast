@@ -1,0 +1,6 @@
+= div_for post do
+  .title= link_to post.title, article_path(post.slug)
+  %p
+    = truncate(post.content)
+    %br
+    = link_to 'Read More', article_path(post.slug)

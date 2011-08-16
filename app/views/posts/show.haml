@@ -1,3 +1,17 @@
 .content
-  %h2 Show Post
-  
+  .left.wide.group
+    %h2= @post.title
+    = raw RedCloth.new(@post.content).to_html
+    .clear
+  .right.narrow
+    - if current_user
+      = link_to 'Edit Article', edit_post_path(@post), :class => 'button blue'
+      = link_to 'Destroy Article', post_path(@post), :method => :delete, :confirm => "Are you sure you want to remove this article? This is a permanent and immediate action.", :class => 'button orange'
+    - else
+      = render '/solutions/links'
+    
+  .clear
+
+.content
+  .group
+    = link_to 'All News', news_path

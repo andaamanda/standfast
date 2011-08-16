@@ -1,5 +1,9 @@
 .group
   .content
+    %p
+      &nbsp;&nbsp;&nbsp;Recent News:
+      = link_to @post.title, article_path(@post.slug)
+
     #main_display
       .main_image= image_tag '/images/standfast/worksite.png', :height => '310', :width => '320', :alt => 'Worksite'
       .main_image= image_tag '/images/standfast/worker.png', :height => '310', :width => '320', :alt => 'Worker using TRAM'

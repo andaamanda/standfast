@@ -2,6 +2,7 @@ class StandfastController < ApplicationController
   def index
     @title = "Height Safety Solutions"
     @description = "Standfast is a global height safety solutions company with offices around the world."
+    @post = Post.order_by(:created_at, :desc).limit(1).first
   end
   
   def about

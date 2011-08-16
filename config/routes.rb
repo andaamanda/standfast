@@ -73,7 +73,8 @@ Standfast::Application.routes.draw do
   match '/login' => 'sessions#login'
   get '/logout' => 'sessions#logout'
   
-  get 'news' => 'posts#index'
+  get 'news' => 'posts#index', :as => :news
+  get 'news/:slug' => 'posts#show', :as => :article
   resources :posts
   
   # Sample resource route with sub-resources:

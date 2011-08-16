@@ -10,12 +10,14 @@ gem 'bson_ext', '~> 1.3'
 gem 'haml', '~> 3.1.2'
 gem 'sass', '~> 3.1.4'
 gem 'clearance', '0.11.1'
+gem 'permalink_fu'
+gem 'RedCloth', '4.2.3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+# gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug'
