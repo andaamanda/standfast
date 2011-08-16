@@ -192,7 +192,7 @@
   - groups.each do |group| 
     %div{ :id => "slideshow-#{group[0]}" }
       - group[1].times do |i| 
-        .viewer.standard{ :id => "image-container-#{i}", :class => "#{'hidden' if i != 0}" }
+        .viewer.standard{ :class => "#{'hidden' if i != 0}" }
           = image_tag "/images/slideshows/#{group[0]}/i-#{"%03d" % (i+1)}.png", :alt => "#{group[0]} image #{i}"
       .colorbox-links.for-pics
         = link_to_function 'Next', '', :id => "next-slideshow-#{group[0]}", :class => 'viewer-next'

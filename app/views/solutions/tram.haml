@@ -74,7 +74,13 @@
         The arm acts as a moving handhold, providing stability for the user on the platform.
         While properly connected to the TRAM, the user can conduct their work efficiently,
         safe in the knowledge that they can not fall.
-
+      %h5#low-access-tram Low Access Tram
+      %p
+        The Low Access TRAM, specially designed for the tank truck industry (single dome trailers),
+        creates an wider range of motion to assist the operator.
+        It has a fixed-based and allows users to access it at only 4FT.
+        = link_to 'View a Slideshow', '', :id => 'slideshow-low-access_link'
+        
     .right.narrow
       %p
         = link_to '', :id => 'tram-videos_link' do
@@ -134,12 +140,20 @@
 
   #slideshow
     - 91.times do |i| 
-      .viewer.standard{ :id => "image-container-#{i}", :class => "#{'hidden' if i != 0}" }
+      .viewer.standard{ :class => "#{'hidden' if i != 0}" }
         = image_tag "/images/slideshows/tram/i-#{"%03d" % (i+1)}.png", :alt => "slideshow image #{i}"
     .colorbox-links.for-pics
       = link_to_function 'Next', '', :id => 'next-slideshow', :class => 'viewer-next'
       = link_to_function 'Previous', '', :id => 'previous-slideshow', :class => 'viewer-previous'
-
+  
+  #slideshow-low-access
+    - 29.times do |i| 
+      .viewer.standard{ :class => "#{'hidden' if i != 0}" }
+        = image_tag "/images/slideshows/tram-low-access/i-#{"%03d" % (i+1)}.png", :alt => "slideshow image #{i}"
+    .colorbox-links.for-pics
+      = link_to_function 'Next', '', :id => 'next-slideshow-low-access', :class => 'viewer-next'
+      = link_to_function 'Previous', '', :id => 'previous-slideshow-low-access', :class => 'viewer-previous'
+    
   #certification.small
     %h6 Certification and Testing
     %p 
@@ -181,6 +195,7 @@
   :javascript
     colorbox_display('tram-videos');
     colorbox_display('slideshow');
+    colorbox_display('slideshow-low-access');
     colorbox_init('certification');
     setUpTheatre();
     setUpSlideshow();
