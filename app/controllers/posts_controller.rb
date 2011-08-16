@@ -8,10 +8,14 @@ class PostsController < ApplicationController
     @posts = Post.order_by(:created_at, :desc).limit(PER_PAGE+1).skip((@page-1)*PER_PAGE).to_a
     @more = @posts.count == (PER_PAGE+1)
     @posts.pop if @more
+    
+    @title = "News"
+    @description = "Up-to-date innovations and other height-safety news."
   end
   
   def new
     @post = Post.new
+    @title = "New Article"
   end
   
   def create
@@ -30,10 +34,14 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.where({ 'slug' => params[:slug] }).first
+    
+    @title = @post.title
+    @description = "#{@post.content[0...200]}..."
   end
   
   def edit
     @post = Post.find(params[:id])
+    @title = "Editing #{@post.title}"
   end
   
   def update
