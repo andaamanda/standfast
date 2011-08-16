@@ -1,6 +1,6 @@
 = div_for post do
   .title= link_to post.title, article_path(post.slug)
-  %p
-    = truncate(post.content, :length => 300)
-    %br
-    = link_to 'Read More', article_path(post.slug)
+  = truncate(post.content, :length => 140)
+  %br
+  = link_to 'Read More', article_path(post.slug)
+%br
