@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery
   
   before_filter :set_quote
+  before_filter :set_response_headers
+  
+  def set_response_headers
+    time = (ENV["HTTP_CACHE_LENGTH"] || 0).to_i
+    expires_in time, :public => true
+  end
   
   def set_quote
     quotes = []
