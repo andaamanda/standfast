@@ -12,8 +12,9 @@
         .person-title.fake-link Grant Tracy, Director of Safety
       #gastevich.person.shadowed
         .person-title.fake-link Eric Gastevich, Director
-      #zackrison.person.shadowed
-        .person-title.fake-link Kurt Zackrison, National Sales
+      -#
+        #zackrison.person.shadowed
+          .person-title.fake-link Kurt Zackrison, National Sales
       #bolton.person.shadowed
         .person-title.fake-link Michael Bolton, VP Finance/CFO
       #bliese.person.shadowed
@@ -62,13 +63,14 @@
             communities and hotel and restaurant facilities including over 3,000 residential units and over 250,000 square feet of
             commercial space. Eric sits on several corporate boards and manages a portfolio of public and private equity
             investments. Eric holds a B.S. in Building, Construction and Contracting from Purdue University and an M.B.A. in
-            Finance and Real Estate from DePaul University. Eric currently resides in Indiana.
-        .zackrison.information
-          %h6 Kurt Zackrison, National Sales Director
-          %p
-            Kurt has held various positions in the sales and marketing industry for over 20
-            years. Prior to joining Standfast in 2009, Kurt spent 13 years working in several sales and management roles with Pfizer
-            and Agouron Pharmaceuticals. Kurt graduated with a B.S. in Marketing from the University of Notre Dame.
+            Finance and Real Estate from DePaul University.
+        -#
+          .zackrison.information
+            %h6 Kurt Zackrison, National Sales Director
+            %p
+              Kurt has held various positions in the sales and marketing industry for over 20
+              years. Prior to joining Standfast in 2009, Kurt spent 13 years working in several sales and management roles with Pfizer
+              and Agouron Pharmaceuticals. Kurt graduated with a B.S. in Marketing from the University of Notre Dame.
         .bolton.information
           %h6 Michael Bolton, VP Finance/CFO
           %p
@@ -84,7 +86,7 @@
             team that designed, installed, and tested fall protection systems. Jon holds a degree in structural engineering from the
             Milwaukee School of Engineering where he was also a student technician at the schools material testing facility.
     .clear
-    
+
 .group
   .content
     .left.wide
@@ -94,10 +96,10 @@
 
       %h3 Vision
       %p To be the world wide leaders in the safety revolution.
-      
+
       %h4 Mission
       %p To save lives in the work place by protecting employees working at heights or working in dangerous conditions from the consequences of a fall.
-      
+
       %h5 Values
       In all our relationships we will demonstrate our commitment to:
       %ul
@@ -106,11 +108,11 @@
         %li Respect
         %li Integrity
         %li Team Work
-      
+
     .right.narrow
       = link_to 'Contact Us', contact_path, :class => 'button blue'
       = link_to 'Support', support_path, :class => 'button orange'
-      
+
     .clear
 
 - content_for :scripts do
@@ -123,7 +125,7 @@
       $('#bio_information').hide();
       $('#more_information').show();
     })
-  
+
     $('.person').click(function(){
       if ($(this).hasClass('hover')){
         $('.person').show();
@@ -139,4 +141,4 @@
         $('#bio_information .information').eq($(this).index()-1).show();
         $('#more_information').hide();
       }
-    })  
+    })
